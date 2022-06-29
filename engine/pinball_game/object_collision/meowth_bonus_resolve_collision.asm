@@ -414,6 +414,14 @@ Func_245ab: ; 0x245ab
 	xor a
 	ld [wd6e7], a
 	ld [wd6f3], a
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $3
@@ -1660,6 +1668,14 @@ Func_24e7f: ; 0x24e7f
 	xor a
 	ld [hl], a
 .asm_24e92
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $3

@@ -257,6 +257,14 @@ Func_25da3: ; 0x25da3
 .asm_25e04
 	ld [wd79a], a
 .asm_25e07
+	; begin link cable instruction
+	ld a, $34 ; 0b0011_0100 -- half power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $33
 	ld [wRumblePattern], a
 	ld a, $8

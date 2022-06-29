@@ -140,6 +140,14 @@ Func_1936f: ; 0x1936f
 	ld a, [wRumbleDuration]
 	and a
 	jr nz, .asm_19410
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8

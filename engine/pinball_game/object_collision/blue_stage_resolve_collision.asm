@@ -356,6 +356,14 @@ ResolveShellderCollision: ; 0x1c9c1
 	ret
 
 ApplyShellderCollision: ; 0x1ca29
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $3
@@ -581,6 +589,14 @@ LoadBumperGraphics_BlueField: ; 0x1ce7a
 	ret
 
 ApplyBumperCollision_BlueField: ; 0x1ce94
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $3
@@ -817,6 +833,14 @@ UpdatePikachuSaverAnimation_BlueField: ; 0x1d133
 	callba PlayPikachuSoundClip
 	ld a, $1
 	ld [wAudioEngineEnabled], a
+	; begin link cable instruction
+	ld a, $f6 ; 0b1111_0110 -- full power, 96 frames
+	ld [rSB], a
+	;ld a, $1
+	;ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $60
@@ -1806,6 +1830,14 @@ AddScorePsyduckOrPoliwag: ; 0x1de22
 	ld a, [wCurrentStage]
 	bit 0, a
 	ret z
+	; begin link cable instruction
+	ld a, $33 ; 0b0011_0011 -- half power, 4 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $55
 	ld [wRumblePattern], a
 	ld a, 4
@@ -2556,6 +2588,14 @@ ResolveSlotCollision_BlueField: ; 0x1e757
 	jr nz, .asm_1e7f5
 	xor a
 	ld [wSlotIsOpen], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8
@@ -2883,6 +2923,14 @@ _ApplySlotForceField_BlueField: ; 0x1ea6a
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8
@@ -3202,6 +3250,14 @@ ApplyForceFieldForce_Up:  ; 0x1eff3
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8
@@ -3277,6 +3333,14 @@ ApplyForceFieldForce_Down: ; 0x1f057
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8
@@ -3352,6 +3416,14 @@ ApplyForceFieldForce_Right: ; 0x1f0be
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8
@@ -3427,6 +3499,14 @@ ApplyForceFieldForce_Left: ; 0x1f124
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $5
 	ld [wRumblePattern], a
 	ld a, $8

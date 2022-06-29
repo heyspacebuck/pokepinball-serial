@@ -2533,6 +2533,14 @@ ApplyCollisionForces: ; 0x222b
 	; The ball collided hard because its y velocity is a
 	; large value. Shake the rumble pack, and play a little
 	; sound effect to enhance the collision.
+	; begin link cable instruction
+	ld a, $f1 ; 0b1111_0001 -- full power, 1 frame
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, 1

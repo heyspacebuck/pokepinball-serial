@@ -209,6 +209,14 @@ Func_18464: ; 0x18464
 	ld [wNumGastlyHits], a
 	ld bc, OneHundredThousandPoints
 	callba AddBigBCD6FromQueue
+	; begin link cable instruction
+	ld a, $34 ; 0b0011_0100 -- half power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $33
 	ld [wRumblePattern], a
 	ld a, $8
@@ -457,6 +465,14 @@ Func_1860b: ; 0x1860b
 	ld [wNumHaunterHits], a
 	ld bc, FiveHundredThousandPoints
 	callba AddBigBCD6FromQueue
+	; begin link cable instruction
+	ld a, $34 ; 0b0011_0100 -- half power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $33
 	ld [wRumblePattern], a
 	ld a, $8
@@ -726,6 +742,14 @@ Func_187b1: ; 0x187b1
 .asm_18826
 	ld bc, FiveMillionPoints
 	callba AddBigBCD6FromQueue
+	; begin link cable instruction
+	ld a, $34 ; 0b0011_0100 -- half power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $33
 	ld [wRumblePattern], a
 	ld a, $8
@@ -772,6 +796,14 @@ Func_18876: ; 0x18876
 .asm_1888c
 	ld a, $1
 	ld [wd6a4], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $11
 	ld [wRumblePattern], a
 	ld a, $8
@@ -823,6 +855,14 @@ Func_188e1: ; 0x188e1
 	cp $2
 	jr nz, .asm_18901
 .asm_188f7
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $1
 	ld [wRumblePattern], a
 	ld a, $8
@@ -1428,6 +1468,14 @@ Func_18d34: ; 0x18d34
 	jr nz, .asm_18d71
 	ld bc, OneHundredPoints
 	callba AddBigBCD6FromQueue
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $ff
 	ld [wRumblePattern], a
 	ld a, $3

@@ -741,6 +741,14 @@ Func_c869: ; 0xc869
 	ld a, [wd91f]
 	cp $1
 	ret nz
+	; begin link cable instruction
+	ld a, $35 ; 0b0011_0101 -- half power, 64 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $55
 	ld [wRumblePattern], a
 	ld a, $40

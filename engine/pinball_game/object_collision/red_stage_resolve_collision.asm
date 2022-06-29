@@ -458,10 +458,18 @@ HitLeftDiglett3Times: ; 0x14947
 	ret
 
 AddScoreForHittingDiglett: ; 0x1496d
-	ld a, $55
-	ld [wRumblePattern], a
-	ld a, 4
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $33 ; 0b0011_0011 -- half power, 4 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $55
+	;ld [wRumblePattern], a
+	;ld a, 4
+	;ld [wRumbleDuration], a
 	ld a, 2
 	ld [wCollisionForceAmplification], a
 	ld bc, FiveHundredPoints
@@ -583,10 +591,18 @@ ResolveVoltorbCollision: ; 0x14d85
 	ret
 
 ApplyVoltorbCollision: ; 0x14dc9
-	ld a, $ff
-	ld [wRumblePattern], a
-	ld a, $3
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $ff
+	;ld [wRumblePattern], a
+	;ld a, $3
+	;ld [wRumbleDuration], a
 	ld hl, $0200
 	ld a, l
 	ld [wFlipperYForce], a
@@ -1682,10 +1698,18 @@ LoadBumperGraphics_RedField: ; 0x15fc0
 	ret
 
 ApplyBumperCollision_RedField: ; 0x15fda
-	ld a, $ff
-	ld [wRumblePattern], a
-	ld a, $3
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $f2 ; 0b1111_0010 -- full power, 3 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $ff
+	;ld [wRumblePattern], a
+	;ld a, $3
+	;ld [wRumbleDuration], a
 	ld hl, $0200
 	ld a, l
 	ld [wFlipperYForce], a
@@ -1736,10 +1760,18 @@ ResolveDittoSlotCollision: ; 0x160f0
 	ld [wBallYPos + 1], a
 	ld a, $10
 	ld [wDittoEnterOrExitCounter], a
-	ld a, $5
-	ld [wRumblePattern], a
-	ld a, $8
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $5
+	;ld [wRumblePattern], a
+	;ld a, $8
+	;ld [wRumbleDuration], a
 .asm_16137
 	ld a, [wDittoEnterOrExitCounter]
 	and a
@@ -1773,10 +1805,18 @@ ResolveDittoSlotCollision: ; 0x160f0
 	ld a, $1
 	ld [wPinballIsVisible], a
 	ld [wEnableBallGravityAndTilt], a
-	ld a, $5
-	ld [wRumblePattern], a
-	ld a, $8
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	;ld a, $1
+	;ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $5
+	;ld [wRumblePattern], a
+	;ld a, $8
+	;ld [wRumbleDuration], a
 	ret
 
 .asm_1618e
@@ -1925,10 +1965,18 @@ _ApplySlotForceField_RedField: ; 0x1620f
 	ld a, [wRumbleDuration]
 	and a
 	ret nz
-	ld a, $5
-	ld [wRumblePattern], a
-	ld a, $8
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $5
+	;ld [wRumblePattern], a
+	;ld a, $8
+	;ld [wRumbleDuration], a
 	lb de, $00, $04
 	call PlaySoundEffect
 	ret
@@ -2002,10 +2050,18 @@ ResolveSlotCollision_RedField: ; 0x16279
 	jr nz, .asm_16317
 	xor a
 	ld [wSlotIsOpen], a
-	ld a, $5
-	ld [wRumblePattern], a
-	ld a, $8
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $14 ; 0b0001_0100 -- 25% power, 8 frames
+	ld [rSB], a
+	;ld a, $1
+	;ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $5
+	;ld [wRumblePattern], a
+	;ld a, $8
+	;ld [wRumbleDuration], a
 	callba LoadMiniBallGfx
 	ret
 
@@ -2399,10 +2455,18 @@ UpdatePikachuSaverAnimation_RedField: ; 0x1669e
 	callba PlayPikachuSoundClip
 	ld a, $1
 	ld [wAudioEngineEnabled], a
-	ld a, $ff
-	ld [wRumblePattern], a
-	ld a, $60
-	ld [wRumbleDuration], a
+	; begin link cable instruction
+	ld a, $f6 ; 0b1111_0110 -- full power, 96 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
+	;ld a, $ff
+	;ld [wRumblePattern], a
+	;ld a, $60
+	;ld [wRumbleDuration], a
 	ld hl, wNumPikachuSaves
 	call Increment_Max100
 	jr nc, .asm_166f0

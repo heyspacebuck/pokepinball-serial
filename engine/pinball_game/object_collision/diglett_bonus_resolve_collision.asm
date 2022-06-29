@@ -618,6 +618,14 @@ Func_1aad4: ; 0x1aad4
 	callba AddBigBCD6FromQueue
 	lb de, $00, $36
 	call PlaySoundEffect
+	; begin link cable instruction
+	ld a, $34 ; 0b0011_0100 -- half power, 8 frames
+	ld [rSB], a
+	ld a, $1
+	ld [rSC], a
+	ld a, $81
+	ld [rSC], a
+	; end link cable instructions
 	ld a, $33
 	ld [wRumblePattern], a
 	ld a, $8
